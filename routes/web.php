@@ -7,6 +7,9 @@ use App\Http\Controllers\additionalPInfoController;
 use App\Http\Controllers\roleInsertionController;
 use App\Http\Controllers\doctorAppointmentController;
 use App\Http\Controllers\adminNavigationController;
+use App\Http\Controllers\RosterController;
+use App\Http\Controllers\DoctorHomeController;
+
 
 
 /*
@@ -41,6 +44,14 @@ Route::get('/doctorAppointment',[doctorAppointmentController::class,'doctorAppoi
 
 Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
 
+Route::get('/roster/create', [RosterController::class, 'create'])->name('roster.create');
+
+Route::post('/roster/store', [RosterController::class, 'store'])->name('roster.store');
+
+Route::middleware(['auth', 'doctor'])->group(function () {
+    Route::get('/doctor/home', [DoctorHomeController::class, 'index'])->name('doctor.home');
+    Route::post('/doctor/submit-till-date', [DoctorHomeController::class, 'submitTillDate'])->name('doctor.submit-till-date');
+});
 
 // Route::get('/logInRoute', [LoginController::class, 'showLoginForm'])->name('logIn');
 
