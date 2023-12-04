@@ -48,34 +48,34 @@ Route::get('/doctorAppointment',[doctorAppointmentController::class,'doctorAppoi
 
 Route::get('/adminNavigation',[adminNavigationController::class,'adminNavigation'])->name('adminNavigation');
 
-Route::get('/roster/create', [RosterController::class, 'create'])->name('roster.create');
+// Route::get('/roster/create', [RosterController::class, 'create'])->name('roster.create');
 
-Route::post('/roster/store', [RosterController::class, 'store'])->name('roster.store');
+// Route::post('/roster/store', [RosterController::class, 'store'])->name('roster.store');
 
-Route::middleware(['auth', 'doctor'])->group(function () {
-    Route::get('/doctor/home', [DoctorHomeController::class, 'index'])->name('doctor.home');
-    Route::post('/doctor/submit-till-date', [DoctorHomeController::class, 'submitTillDate'])->name('doctor.submit-till-date');
-});
+// Route::middleware(['auth', 'doctor'])->group(function () {
+//     Route::get('/doctor/home', [DoctorHomeController::class, 'index'])->name('doctor.home');
+//     Route::post('/doctor/submit-till-date', [DoctorHomeController::class, 'submitTillDate'])->name('doctor.submit-till-date');
+// });
 
-Route::middleware(['auth', 'caregiver'])->group(function () {
-    Route::get('/caregiver/home', [caregiverHomeController::class, 'index']);
-    Route::post('/caregiver/update-details', [caregiverHomeController::class, 'updateDetails']);
-});
+// Route::middleware(['auth', 'caregiver'])->group(function () {
+//     Route::get('/caregiver/home', [caregiverHomeController::class, 'index']);
+//     Route::post('/caregiver/update-details', [caregiverHomeController::class, 'updateDetails']);
+// });
 
-Route::middleware(['auth', 'family_member'])->group(function () {
-    Route::get('/family-member/home', [FamilyMemberHomeController::class, 'index']);
-    Route::post('/family-member/update-details', [FamilyMemberHomeController::class, 'updateDetails']);
-});
+// Route::middleware(['auth', 'family_member'])->group(function () {
+//     Route::get('/family-member/home', [FamilyMemberHomeController::class, 'index']);
+//     Route::post('/family-member/update-details', [FamilyMemberHomeController::class, 'updateDetails']);
+// });
 
-Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin/report', [AdminController::class, 'index']);
-    Route::get('/admin/show-missed-activity', [AdminController::class, 'showMissedActivity']);
-});
+// Route::middleware(['auth', 'admin'])->group(function () {
+//     Route::get('/admin/report', [AdminController::class, 'index']);
+//     Route::get('/admin/show-missed-activity', [AdminController::class, 'showMissedActivity']);
+// });
 
-Route::middleware(['auth', 'patient'])->group(function () {
-    Route::get('/appointment/create', [AppointmentController::class, 'create']);
-    Route::post('/appointment/store', [AppointmentController::class, 'store']);
-});
+// Route::middleware(['auth', 'patient'])->group(function () {
+//     Route::get('/appointment/create', [AppointmentController::class, 'create']);
+//     Route::post('/appointment/store', [AppointmentController::class, 'store']);
+// });
 
 // Route::get('/logInRoute', [LoginController::class, 'showLoginForm'])->name('logIn');
 
